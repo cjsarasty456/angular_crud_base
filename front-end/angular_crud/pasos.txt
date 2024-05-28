@@ -1,0 +1,7 @@
+1. descargar node js: https://nodejs.org/en/download/prebuilt-installer/current
+2. descargar angular https://angular.dev/tools/cli/setup-local#install-the-angular-cli
+3. crear el proyecto:
+    ng new nombre_proyecto
+4. ejecutar proyecto en la terminal
+    ng serve --o
+    El modificador --o es para que abra el navegador por defecto
