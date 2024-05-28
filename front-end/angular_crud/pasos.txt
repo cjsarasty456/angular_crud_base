@@ -5,3 +5,91 @@
 4. ejecutar proyecto en la terminal
     ng serve --o
     El modificador --o es para que abra el navegador por defecto
+
+5. carpeta app se van a crear las carpetas
+    -components
+    -services
+    -interfaces
+    -shared
+6. Se crea un componente dentro de la carpeta components
+de la barra de navegación
+    ng g c components/navbar
+
+7. crea componente que lista los productos
+    ng g c components/listProducts
+
+8. crea componente que crear y editar productos
+    ng g c components/createEditProducts
+
+9. crea servicio que gestiona productos
+    ng g s services/products
+
+10. crea interfaces  productos
+    ng g i interfaces/products
+
+11. en la interfaces se crea la estructura de la tabla
+
+export interface Product {
+    id?:number;
+    nombre:String;
+    descripcion:String;
+    precio:number;
+    cantidad:number;
+}
+12. se escoge diseño de la vista, en este ejemplo
+se escoge una modificación de boostrap, usando
+bootswatch 
+https://bootswatch.com/superhero/
+se puede escoger el tema a preferencia, y descargar y trabajar
+de manera local, en este caso se escoge el tema: Superhero y 
+usarlo de manera cdn
+https://cdnjs.com/libraries/bootswatch
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/5.3.3/superhero/bootstrap.min.css" integrity="sha512-yeFVFyLRIY48erNjFZ1uXiERPXN8izq4mBNe4iSgVYT0bq/ZiSsWwTlaSObBDeqR/+7MBw1g23iSpI9ru/qtGQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+13. Se diseña el navbar de la aplicación
+se utiliza la plantilla por defecto del tema superhero
+
+14. Para agregar el componente navBar se debe verificar si su 
+proyecto es tradicional de angular o moderno
+
+en este caso se está usando proyecto moderno
+Standalone o configuración autonoma que no se encuentra el 
+archivo app.module.ts
+así que se tiene que configurar app.component.ts
+importando los modulos necesarios
+en este paso navbar
+
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import {NavbarComponent} from './components/navbar/navbar.component';
+/*
+agregar los componentes necesarios
+*/
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet,
+    NavbarComponent
+    //agregar los componentes necesarios
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent {
+  title = 'angular_crud';
+}
+
+
+Información del proyecto
+Se crea un proyecto en angular para practicar el framework
+este proyecto se configurará para consumir una API diseñada
+en java con el framework Spring boot, utilizando el patrón 
+de diseño MVC, donde el proyecto web angular viene siendo
+la vista
+
+Partes:
+
+-Este proyecto tiene una barra de navegación
+
